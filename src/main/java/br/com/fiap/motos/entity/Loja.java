@@ -36,7 +36,8 @@ public class Loja {
                     foreignKey = @ForeignKey(name = "FK_LOJA_VEICULO")),
             inverseJoinColumns = @JoinColumn(name = "ID_VEICULO",
                     referencedColumnName = "ID_VEICULO",
-                    foreignKey = @ForeignKey(name = "FK_VEICULO_LOJA"))
+                    foreignKey = @ForeignKey(name = "FK_VEICULO_LOJA")),
+            uniqueConstraints = @UniqueConstraint(name = "UK_LOJA_VEICULO", columnNames = {"ID_VEICULO"})
     )
     private Set<Veiculo> veiculosComercializados = new LinkedHashSet<>();
 
