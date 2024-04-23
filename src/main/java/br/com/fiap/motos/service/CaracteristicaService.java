@@ -17,6 +17,10 @@ public class CaracteristicaService implements ServiceDTO<Caracteristica, Caracte
     @Autowired
     private CaracteristicaRepository repo;
 
+
+    @Autowired
+    private VeiculoService veiculoService;
+
     @Override
     public Collection<Caracteristica> findAll(Example<Caracteristica> example) {
         return repo.findAll(example);
@@ -34,17 +38,21 @@ public class CaracteristicaService implements ServiceDTO<Caracteristica, Caracte
 
     @Override
     public Caracteristica toEntity(CaracteristicaRequest dto) {
+        var veiculo = veiculoService.findById(dto.veiculo().id());
         return Caracteristica.builder()
                 .nome(dto.nome())
+                .veiculo(veiculo)
                 .descricao(dto.descricao())
                 .build();
     }
 
     @Override
     public CaracteristicaResponse toResponse(Caracteristica e) {
+        var veiculo = veiculoService.toResponse(e.getVeiculo());
         return CaracteristicaResponse.builder()
                 .id(e.getId())
                 .nome(e.getNome())
+                .veiculo(veiculo)
                 .descricao(e.getDescricao())
                 .build();
     }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class LojaService implements ServiceDTO<Loja, LojaRequest, LojaResponse>{
@@ -17,6 +18,9 @@ public class LojaService implements ServiceDTO<Loja, LojaRequest, LojaResponse>{
     @Autowired
     private LojaRepository repo;
 
+
+    @Autowired
+    private VeiculoService veiculoService;
     @Override
     public Collection<Loja> findAll(Example<Loja> example) {
         return repo.findAll(example);
@@ -41,8 +45,12 @@ public class LojaService implements ServiceDTO<Loja, LojaRequest, LojaResponse>{
 
     @Override
     public LojaResponse toResponse(Loja e) {
+        var veiculos = e.getVeiculosComercializados().stream().map(
+                veiculoService::toResponse
+        ).collect(Collectors.toSet());
         return LojaResponse.builder()
                 .id(e.getId())
+                .veiculosComercializados(veiculos)
                 .nome(e.getNome())
                 .build();
     }
