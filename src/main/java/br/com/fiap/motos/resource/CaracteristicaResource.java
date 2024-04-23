@@ -3,16 +3,20 @@ package br.com.fiap.motos.resource;
 import br.com.fiap.motos.dto.request.CaracteristicaRequest;
 import br.com.fiap.motos.dto.response.CaracteristicaResponse;
 import br.com.fiap.motos.entity.Caracteristica;
+import br.com.fiap.motos.repository.VeiculoRepository;
 import br.com.fiap.motos.service.CaracteristicaService;
+import br.com.fiap.motos.service.VeiculoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.util.Collection;
+import java.util.Objects;
 
 @RestController
 @RequestMapping(value = "/caracteristicas")
@@ -21,14 +25,24 @@ public class CaracteristicaResource implements ResourceDTO<Caracteristica, Carac
     @Autowired
     private CaracteristicaService service;
 
+    @Autowired
+    private VeiculoService veiculoService;
+
+    @Autowired
+    private VeiculoRepository veiculoRepository;
+
     @GetMapping
     public ResponseEntity<Collection<CaracteristicaResponse>> findAll(
             @RequestParam(name="nome", required = false) String nome,
             @RequestParam(name="descricao", required = false) String descricao,
             @RequestParam(name="veiculo.id", required = false) Long veiculoId
     ) {
+        var veiculo = Objects.nonNull( veiculoId ) ? veiculoRepository.findById( veiculoId ).orElse( null ) : null;
+
         var caracteristica = Caracteristica.builder()
                 .nome(nome)
+                .descricao(descricao)
+                .veiculo(veiculo)
                 .build();
 
         ExampleMatcher matcher = ExampleMatcher.matchingAll()
@@ -57,6 +71,8 @@ public class CaracteristicaResource implements ResourceDTO<Caracteristica, Carac
     }
 
     @Override
+    @PostMapping
+    @Transactional
     public ResponseEntity<CaracteristicaResponse> save(@RequestBody @Valid CaracteristicaRequest r) {
         var entity = service.toEntity( r );
         var saved = service.save( entity );

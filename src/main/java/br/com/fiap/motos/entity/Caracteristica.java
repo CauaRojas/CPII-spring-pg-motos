@@ -31,7 +31,7 @@ public class Caracteristica {
     @Column(name = "DS_CARACTERISTICA", length = 20)
     private String descricao;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(
             name = "ID_VEICULO",
             referencedColumnName = "ID_VEICULO",

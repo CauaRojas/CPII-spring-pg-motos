@@ -18,12 +18,14 @@ public record VeiculoRequest(
         @NotNull(message = "O ano de fabricação é campo obrigatório")
         @DateTimeFormat(pattern = "yyyy")
         Year anoDeFabricacao,
-        @Positive(message = "O Id deve ser um número positivo")
         @NotNull(message = "O id é obrigatório")
+        @Size(min = 1, max = 255, message = "A quantidade de caracteres do nome deve estar entre 3 - 255")
         String nome,
-        @Valid @NotNull(message = "O tipo é campo obrigatório")
+        @Valid
+        @NotNull(message = "O tipo é campo obrigatório")
         AbstractRequest tipo,
-        @Valid @NotNull(message = "O fabricante é campo obrigatório")
+        @Valid
+        @NotNull(message = "O fabricante é campo obrigatório")
         AbstractRequest fabricante,
         @NotNull(message = "A cor é campo obrigatório")
         @Size(min = 2, max = 255, message = "A quantidade de caracteres da cor deve estar entre")

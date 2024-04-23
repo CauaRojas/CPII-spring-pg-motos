@@ -1,0 +1,506 @@
+{
+	"id": "d292cdc5-e8df-4733-8175-722b5256b741",
+	"name": "Motos",
+	"timestamp": "2024-04-23T20:09:59.528Z",
+	"collection_id": "34313609-99613aea-88fe-4e6a-9f9e-a1a7fa756be0",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-04-23T20:09:58.122Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "eb58069a-46a9-4aee-ba7f-28f1f5515ec5",
+			"name": "localhost/tipo-de-veiculo",
+			"url": "localhost/tipo-de-veiculo",
+			"time": 314,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				314
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9e62cdf2-4b30-4ef8-829d-6b5aa7462037",
+			"name": "localhost/tipo-de-veiculo",
+			"url": "localhost/tipo-de-veiculo?nome=Esportiva",
+			"time": 169,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				169
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "885bfb1b-a658-4cc3-9081-f61fde82977a",
+			"name": "localhost/tipo-de-veiculo/{id}",
+			"url": "localhost/tipo-de-veiculo/1",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				12
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "647a4512-f1c8-4fa8-8af4-a6d36bce979d",
+			"name": "localhost/fabricantes",
+			"url": "localhost/fabricantes",
+			"time": 14,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a9e2a99a-cdfb-4b1c-8b55-efba1c2f5f5f",
+			"name": "localhost/fabricantes",
+			"url": "localhost/fabricantes?nome=Fabricante XYZ&nomeFantasia=Fabricante XYZ Fantasia",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7e6e5792-536c-4fa0-9b49-877d4af157ff",
+			"name": "localhost/fabricantes/{id}",
+			"url": "localhost/fabricantes/1",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "02ebcbaa-664a-4003-a4a5-dc91b94d9ad1",
+			"name": "localhost/acessorio",
+			"url": "localhost/acessorio",
+			"time": 24,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				24
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b9a4a0c8-b369-4bb6-ba6b-7bc797b1c390",
+			"name": "localhost/acessorio?nome&preco",
+			"url": "localhost/acessorio?nome=Manoplas esportivas&preco=99.99",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				11
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ec26e2a3-6b73-4229-b3be-7cdd729ddbbe",
+			"name": "localhost/acessorio/{id}",
+			"url": "localhost/acessorio/1",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				5
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "fce0dd97-4a2c-45fb-9b18-8d57d6dfd60a",
+			"name": "localhost/veiculos",
+			"url": "localhost/veiculos",
+			"time": 63,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				63
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "18e3ee42-334b-4a87-83ed-bd8387dadb33",
+			"name": "localhost/veiculos/{id}/acessorios",
+			"url": "localhost/veiculos/1/acessorios",
+			"time": 51,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				51
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5c76114f-8d70-40f7-8a88-bac70786a8e4",
+			"name": "localhost/veiculos",
+			"url": "localhost/veiculos?preco=10000.99&modelo=Sg500&anoDeFabricacao=2000&nome=Sg&tipo.id=1&fabricante.id=1&cor=Azul&cilindradas=500",
+			"time": 25,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				25
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ed41df01-195b-405e-beda-5e6d665b8f63",
+			"name": "localhost/veiculos/{id}",
+			"url": "localhost/veiculos/1",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e661a5ae-2c01-4e7b-b787-e1079610be08",
+			"name": "localhost/veiculos/{id}/acessorios",
+			"url": "localhost/veiculos/1/acessorios",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cec33a34-4de2-4770-b634-072c7e7e7e00",
+			"name": "localhost/caracteristicas",
+			"url": "localhost/caracteristicas",
+			"time": 20,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				20
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a44f7a28-8748-4ecf-9a5f-4992795bb1e9",
+			"name": "localhost/caracteristicas",
+			"url": "localhost/caracteristicas?veiculo.id=1&descricao=Muito bom&nome=Cor",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				12
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f35d759e-fecb-4e82-a50f-773650536e15",
+			"name": "localhost/caracteristicas/{id}",
+			"url": "localhost/caracteristicas/1",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6379b7c3-d3bb-4efd-ad84-e5aa1a7d3597",
+			"name": "localhost/loja",
+			"url": "localhost/loja",
+			"time": 14,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0ea65018-8a4a-42f4-b731-5a428bd7f490",
+			"name": "localhost/loja/{id}/veiculos",
+			"url": "localhost/loja/1/veiculos",
+			"time": 29,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				29
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b1005aef-0617-45e6-beb0-49fca8fa4617",
+			"name": "localhost/loja",
+			"url": "localhost/loja?nome=Motos Premium Brasil",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				10
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c9ae8738-e8f4-4a83-8e0c-44e20a3f374b",
+			"name": "localhost/loja/{id}",
+			"url": "localhost/loja/1",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				7
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8a2dcdc5-62e1-46a5-a8c5-7442cf1e5f68",
+			"name": "localhost/loja/{id}/veiculos",
+			"url": "localhost/loja/1/veiculos",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 823,
+	"collection": {
+		"requests": [
+			{
+				"id": "eb58069a-46a9-4aee-ba7f-28f1f5515ec5",
+				"method": "POST"
+			},
+			{
+				"id": "9e62cdf2-4b30-4ef8-829d-6b5aa7462037",
+				"method": "GET"
+			},
+			{
+				"id": "885bfb1b-a658-4cc3-9081-f61fde82977a",
+				"method": "GET"
+			},
+			{
+				"id": "647a4512-f1c8-4fa8-8af4-a6d36bce979d",
+				"method": "POST"
+			},
+			{
+				"id": "a9e2a99a-cdfb-4b1c-8b55-efba1c2f5f5f",
+				"method": "GET"
+			},
+			{
+				"id": "7e6e5792-536c-4fa0-9b49-877d4af157ff",
+				"method": "GET"
+			},
+			{
+				"id": "02ebcbaa-664a-4003-a4a5-dc91b94d9ad1",
+				"method": "POST"
+			},
+			{
+				"id": "b9a4a0c8-b369-4bb6-ba6b-7bc797b1c390",
+				"method": "GET"
+			},
+			{
+				"id": "ec26e2a3-6b73-4229-b3be-7cdd729ddbbe",
+				"method": "GET"
+			},
+			{
+				"id": "fce0dd97-4a2c-45fb-9b18-8d57d6dfd60a",
+				"method": "POST"
+			},
+			{
+				"id": "18e3ee42-334b-4a87-83ed-bd8387dadb33",
+				"method": "POST"
+			},
+			{
+				"id": "5c76114f-8d70-40f7-8a88-bac70786a8e4",
+				"method": "GET"
+			},
+			{
+				"id": "ed41df01-195b-405e-beda-5e6d665b8f63",
+				"method": "GET"
+			},
+			{
+				"id": "e661a5ae-2c01-4e7b-b787-e1079610be08",
+				"method": "GET"
+			},
+			{
+				"id": "cec33a34-4de2-4770-b634-072c7e7e7e00",
+				"method": "POST"
+			},
+			{
+				"id": "a44f7a28-8748-4ecf-9a5f-4992795bb1e9",
+				"method": "GET"
+			},
+			{
+				"id": "f35d759e-fecb-4e82-a50f-773650536e15",
+				"method": "GET"
+			},
+			{
+				"id": "6379b7c3-d3bb-4efd-ad84-e5aa1a7d3597",
+				"method": "POST"
+			},
+			{
+				"id": "0ea65018-8a4a-42f4-b731-5a428bd7f490",
+				"method": "POST"
+			},
+			{
+				"id": "b1005aef-0617-45e6-beb0-49fca8fa4617",
+				"method": "GET"
+			},
+			{
+				"id": "c9ae8738-e8f4-4a83-8e0c-44e20a3f374b",
+				"method": "GET"
+			},
+			{
+				"id": "8a2dcdc5-62e1-46a5-a8c5-7442cf1e5f68",
+				"method": "GET"
+			}
+		]
+	}
+}

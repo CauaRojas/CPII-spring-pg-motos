@@ -47,12 +47,12 @@ public class Veiculo {
     @Column(name = "DS_EFEITO")
     private String palavraDeEfeito;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_FABRICANTE", foreignKey = @ForeignKey(name = "FK_VEICULO_FABRICANTE"))
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "ID_FABRICANTE", referencedColumnName = "ID_FABRICANTE",foreignKey = @ForeignKey(name = "FK_VEICULO_FABRICANTE"))
     private Fabricante fabricante;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_TIPO_VEICULO", foreignKey = @ForeignKey(name = "FK_VEICULO_TIPO_VEICULO"))
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "ID_TIPO_VEICULO",referencedColumnName = "ID_TIPO_VEICULO" ,foreignKey = @ForeignKey(name = "FK_VEICULO_TIPO_VEICULO"))
     private TipoVeiculo tipo;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})

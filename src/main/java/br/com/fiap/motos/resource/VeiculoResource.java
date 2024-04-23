@@ -44,7 +44,7 @@ public class VeiculoResource implements ResourceDTO<Veiculo, VeiculoRequest, Vei
             @RequestParam(name="nome", required = false) String nome,
             @RequestParam(name="tipo.id", required = false) Long idTipo,
             @RequestParam(name = "fabricante.id", required = false) Long idFabricante,
-            @RequestParam(name="anoDeFabricacao", required = false) String cor,
+            @RequestParam(name="cor", required = false) String cor,
             @RequestParam(name="cilindradas", required = false) Short cilindradas
             ){
         var fabricante =  Objects.nonNull( idFabricante ) ? fabricanteRepository
@@ -134,16 +134,18 @@ public class VeiculoResource implements ResourceDTO<Veiculo, VeiculoRequest, Vei
 
     @Transactional
     @GetMapping(value="/{id}/acessorios")
-    public ResponseEntity<Collection<AcessorioResponse>> findAcessorios(@PathVariable Long id){
+    public ResponseEntity<Collection<AcessorioResponse>> findAcessorios(@PathVariable Long id)
+            {
         var veiculo = service.findById( id );
         if (veiculo == null) return ResponseEntity.notFound().build();
 
         var acessorios = veiculo.getAcessorios();
-        if(acessorios.isEmpty()) return ResponseEntity.noContent().build();
-
         var resposta = acessorios.stream()
                 .map( acessorioService::toResponse )
                 .toList();
+
+        if(resposta.isEmpty()) return ResponseEntity.noContent().build();
+
 
         return ResponseEntity.ok( resposta );
     }

@@ -1,0 +1,580 @@
+{
+	"info": {
+		"_postman_id": "99613aea-88fe-4e6a-9f9e-a1a7fa756be0",
+		"name": "Motos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34313609"
+	},
+	"item": [
+		{
+			"name": "Tipos </",
+			"item": [
+				{
+					"name": "localhost/tipo-de-veiculo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Esportiva\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/tipo-de-veiculo",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"tipo-de-veiculo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/tipo-de-veiculo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/tipo-de-veiculo?nome=Esportiva",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"tipo-de-veiculo"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Esportiva"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/tipo-de-veiculo/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/tipo-de-veiculo/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"tipo-de-veiculo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fabricantes </",
+			"item": [
+				{
+					"name": "localhost/fabricantes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fabricante XYZ\",\r\n    \"nomeFantasia\": \"Fabricante XYZ Fantasia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/fabricantes",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"fabricantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/fabricantes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/fabricantes?nome=Fabricante XYZ&nomeFantasia=Fabricante XYZ Fantasia",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"fabricantes"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Fabricante XYZ"
+								},
+								{
+									"key": "nomeFantasia",
+									"value": "Fabricante XYZ Fantasia"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/fabricantes/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/fabricantes/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"fabricantes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Acessorio </",
+			"item": [
+				{
+					"name": "localhost/acessorio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Manoplas esportivas\",\r\n    \"preco\": 99.99\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/acessorio",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"acessorio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/acessorio?nome&preco",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/acessorio?nome=Manoplas esportivas&preco=99.99",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"acessorio"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Manoplas esportivas"
+								},
+								{
+									"key": "preco",
+									"value": "99.99"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/acessorio/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/acessorio/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"acessorio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Veiculos </",
+			"item": [
+				{
+					"name": "localhost/veiculos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Sg\",\r\n    \"modelo\": \"Sg500\",\r\n    \"anoDeFabricacao\": \"2000\",\r\n    \"tipo\": {\"id\":1},\r\n    \"fabricante\":{\"id\": 1},\r\n    \"cor\": \"Azul\",\r\n    \"palavraDeEfeito\": \"Azul é bom\",\r\n    \"cilindradas\": 500,\r\n    \"preco\": 10000.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/veiculos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/veiculos/{id}/acessorios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Painel Led\",\r\n    \"preco\": 300\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/veiculos/1/acessorios",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"veiculos",
+								"1",
+								"acessorios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/veiculos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/veiculos?preco=10000.99&modelo=Sg500&anoDeFabricacao=2000&nome=Sg&tipo.id=1&fabricante.id=1&cor=Azul&cilindradas=500",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"veiculos"
+							],
+							"query": [
+								{
+									"key": "preco",
+									"value": "10000.99"
+								},
+								{
+									"key": "modelo",
+									"value": "Sg500"
+								},
+								{
+									"key": "anoDeFabricacao",
+									"value": "2000"
+								},
+								{
+									"key": "nome",
+									"value": "Sg"
+								},
+								{
+									"key": "tipo.id",
+									"value": "1"
+								},
+								{
+									"key": "fabricante.id",
+									"value": "1"
+								},
+								{
+									"key": "cor",
+									"value": "Azul"
+								},
+								{
+									"key": "cilindradas",
+									"value": "500"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/veiculos/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/veiculos/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"veiculos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/veiculos/{id}/acessorios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/veiculos/1/acessorios",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"veiculos",
+								"1",
+								"acessorios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Caracteristicas",
+			"item": [
+				{
+					"name": "localhost/caracteristicas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"veiculo\":{\"id\": 1},\r\n    \"nome\": \"Cor\",\r\n    \"descricao\": \"Muito bom\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/caracteristicas",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"caracteristicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/caracteristicas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/caracteristicas?veiculo.id=1&descricao=Muito bom&nome=Cor",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"caracteristicas"
+							],
+							"query": [
+								{
+									"key": "veiculo.id",
+									"value": "1"
+								},
+								{
+									"key": "descricao",
+									"value": "Muito bom"
+								},
+								{
+									"key": "nome",
+									"value": "Cor"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/caracteristicas/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/caracteristicas/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"caracteristicas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Loja </",
+			"item": [
+				{
+					"name": "localhost/loja",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Motos Premium Brasil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/loja",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"loja"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/loja/{id}/veiculos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"preco\": 50000,\r\n    \"modelo\": \"Modelo do Veículo\",\r\n    \"anoDeFabricacao\" : \"2000\",\r\n    \"nome\" : \"nome\",\r\n    \"tipo\" :{\"id\": 1},\r\n    \"fabricante\" :{\"id\": 1},\r\n    \"cor\" : \"cor\",\r\n    \"palavraDeEfeito\" : \"palavra de efeito\",\r\n    \"cilindradas\" : 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/loja/1/veiculos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"loja",
+								"1",
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/loja",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/loja?nome=Motos Premium Brasil",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"loja"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Motos Premium Brasil"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/loja/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/loja/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"loja",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/loja/{id}/veiculos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/loja/1/veiculos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"loja",
+								"1",
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

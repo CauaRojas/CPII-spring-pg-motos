@@ -33,12 +33,14 @@ public class CaracteristicaService implements ServiceDTO<Caracteristica, Caracte
 
     @Override
     public Caracteristica save(Caracteristica e) {
+        System.out.println(e);
         return repo.save(e);
     }
 
     @Override
     public Caracteristica toEntity(CaracteristicaRequest dto) {
         var veiculo = veiculoService.findById(dto.veiculo().id());
+
         return Caracteristica.builder()
                 .nome(dto.nome())
                 .veiculo(veiculo)
