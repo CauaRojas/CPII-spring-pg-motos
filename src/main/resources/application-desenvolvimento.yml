@@ -1,10 +1,10 @@
 spring:
   datasource:
-    url: jdbc:mariadb://${DB_DESENV_SERVER:localhost}:${DB_DESENV_PORT:3306}/${DB_DESENV_NAME:CP-2-desenv-spring-motos}?createDatabaseIfNotExist=true
-    username: ${DB_DESENV_USERNAME:root}
-    password: ${DB_DESENV_PASSWORD:root}
+    url: jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL
+    username: rm99738
+    password: 261204
   jpa:
+    show-sql: true
+    open-in-view: true
     hibernate:
       ddl-auto: update
-    open-in-view: false
-    show-sql: true
