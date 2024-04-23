@@ -4,7 +4,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public record CaracteristacaRequest(
+public record CaracteristicaRequest(
         @Valid @NotNull(message = "Veículo é obrigatório")
         AbstractRequest veiculo,
         @NotNull(message = "Nome é obrigatório")
