@@ -33,6 +33,6 @@ public record VeiculoRequest(
         String palavraDeEfeito,
         @Positive(message = "As cilindradas deve ser um número positivo")
         @NotNull(message = "As cilindradas é obrigatório")
-        short cilindradas
+        Short cilindradas
 ) {
 }
