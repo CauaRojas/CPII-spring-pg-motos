@@ -73,7 +73,7 @@ public class VeiculoResource implements ResourceDTO<Veiculo, VeiculoRequest, Vei
 
         var encontrados = service.findAll( example );
 
-        if (encontrados.isEmpty()) return ResponseEntity.notFound().build();
+        if (encontrados.isEmpty()) return ResponseEntity.noContent().build();
 
         var resposta = encontrados.stream()
                 .map( service::toResponse )
@@ -84,7 +84,7 @@ public class VeiculoResource implements ResourceDTO<Veiculo, VeiculoRequest, Vei
 
     @Override
     @GetMapping(value = "/{id}")
-    public ResponseEntity<VeiculoResponse> findById(Long id) {
+    public ResponseEntity<VeiculoResponse> findById(@PathVariable Long id) {
         var encontrado = service.findById( id );
         if (encontrado == null) return ResponseEntity.notFound().build();
         var resposta = service.toResponse( encontrado );
@@ -110,9 +110,9 @@ public class VeiculoResource implements ResourceDTO<Veiculo, VeiculoRequest, Vei
 
     @Transactional
     @PostMapping(value="/{id}/acessorios")
-    public ResponseEntity<VeiculoResponse> saveAcessorio(Long id, @RequestBody @Valid AcessorioRequest r){
+    public ResponseEntity<VeiculoResponse> saveAcessorio(@PathVariable Long id, @RequestBody @Valid AcessorioRequest r){
         var veiculo = service.findById( id );
-        if (veiculo == null) return ResponseEntity.badRequest().build();
+        if (veiculo == null) return ResponseEntity.notFound().build();
 
         var acessorio = acessorioService.toEntity( r );
         var acessorios = veiculo.getAcessorios();
@@ -134,7 +134,7 @@ public class VeiculoResource implements ResourceDTO<Veiculo, VeiculoRequest, Vei
 
     @Transactional
     @GetMapping(value="/{id}/acessorios")
-    public ResponseEntity<Collection<AcessorioResponse>> findAcessorios(Long id){
+    public ResponseEntity<Collection<AcessorioResponse>> findAcessorios(@PathVariable Long id){
         var veiculo = service.findById( id );
         if (veiculo == null) return ResponseEntity.notFound().build();
 

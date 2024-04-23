@@ -1,6 +1,6 @@
 package br.com.fiap.motos.service;
 
-import br.com.fiap.motos.dto.request.TipoDeVeiculoRequest;
+import br.com.fiap.motos.dto.request.TipoVeiculoRequest;
 import br.com.fiap.motos.dto.response.TipoVeiculoResponse;
 import br.com.fiap.motos.entity.TipoVeiculo;
 import br.com.fiap.motos.repository.TipoVeiculoRepository;
@@ -9,10 +9,9 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.List;
 
 @Service
-public class TipoVeiculoService implements ServiceDTO<TipoVeiculo, TipoDeVeiculoRequest, TipoVeiculoResponse>{
+public class TipoVeiculoService implements ServiceDTO<TipoVeiculo, TipoVeiculoRequest, TipoVeiculoResponse>{
     @Autowired
     private TipoVeiculoRepository repo;
 
@@ -32,7 +31,7 @@ public class TipoVeiculoService implements ServiceDTO<TipoVeiculo, TipoDeVeiculo
     }
 
     @Override
-    public TipoVeiculo toEntity(TipoDeVeiculoRequest dto) {
+    public TipoVeiculo toEntity(TipoVeiculoRequest dto) {
         return TipoVeiculo.builder()
                 .nome(dto.nome())
                 .build();

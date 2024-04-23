@@ -1,9 +1,9 @@
 package br.com.fiap.motos.resource;
 
-import br.com.fiap.motos.dto.request.AcessorioRequest;
-import br.com.fiap.motos.dto.response.AcessorioResponse;
-import br.com.fiap.motos.entity.Acessorio;
-import br.com.fiap.motos.service.AcessorioService;
+import br.com.fiap.motos.dto.request.FabricanteRequest;
+import br.com.fiap.motos.dto.response.FabricanteResponse;
+import br.com.fiap.motos.entity.Fabricante;
+import br.com.fiap.motos.service.FabricanteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -16,26 +16,26 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.util.Collection;
 
 @RestController
-@RequestMapping(value = "/acessorio")
-public class AcessorioResource implements ResourceDTO<Acessorio, AcessorioRequest, AcessorioResponse>{
+@RequestMapping(value = "/fabricantes")
+public class FabricanteResource implements ResourceDTO<Fabricante, FabricanteRequest, FabricanteResponse>{
 
     @Autowired
-    AcessorioService service;
+    private FabricanteService service;
 
     @GetMapping
-    public ResponseEntity<Collection<AcessorioResponse>> findAll(
+    public ResponseEntity<Collection<FabricanteResponse>> findAll(
             @RequestParam(name="nome", required = false) String nome,
-            @RequestParam(name="preco", required = false) Double preco
+            @RequestParam(name="nomeFantasia", required = false) String nomeFantasia
     ) {
-        var acessorio = Acessorio.builder()
+        var fabricante = Fabricante.builder()
                 .nome(nome)
-                .preco(preco)
+                .nomeFantasia(nomeFantasia)
                 .build();
 
         ExampleMatcher matcher = ExampleMatcher.matchingAll()
                 .withIgnoreNullValues()
                 .withIgnoreCase();
-        Example<Acessorio> example = Example.of( acessorio , matcher );
+        Example<Fabricante> example = Example.of( fabricante , matcher );
 
         var encontrados = service.findAll( example );
 
@@ -48,10 +48,9 @@ public class AcessorioResource implements ResourceDTO<Acessorio, AcessorioReques
         return ResponseEntity.ok( resposta );
     }
 
-
     @Override
     @GetMapping("/{id}")
-    public ResponseEntity<AcessorioResponse> findById(@PathVariable  Long id) {
+    public ResponseEntity<FabricanteResponse> findById(@PathVariable Long id) {
         var encontrado = service.findById( id );
         if (encontrado == null) return ResponseEntity.notFound().build();
         var resposta = service.toResponse( encontrado );
@@ -59,9 +58,9 @@ public class AcessorioResource implements ResourceDTO<Acessorio, AcessorioReques
     }
 
     @Override
-    @Transactional
     @PostMapping
-    public ResponseEntity<AcessorioResponse> save(@RequestBody @Valid AcessorioRequest r) {
+    @Transactional
+    public ResponseEntity<FabricanteResponse> save(@RequestBody @Valid FabricanteRequest r) {
         var entity = service.toEntity( r );
         var saved = service.save( entity );
         var resposta = service.toResponse( saved );
