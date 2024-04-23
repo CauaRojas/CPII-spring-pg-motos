@@ -4,10 +4,12 @@ import br.com.fiap.motos.dto.request.AcessorioRequest;
 import br.com.fiap.motos.dto.request.VeiculoRequest;
 import br.com.fiap.motos.dto.response.AcessorioResponse;
 import br.com.fiap.motos.dto.response.VeiculoResponse;
+import br.com.fiap.motos.entity.Acessorio;
 import br.com.fiap.motos.entity.Veiculo;
 import br.com.fiap.motos.repository.FabricanteRepository;
 import br.com.fiap.motos.repository.TipoVeiculoRepository;
 import br.com.fiap.motos.service.AcessorioService;
+import br.com.fiap.motos.service.VeiculoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -20,6 +22,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.time.Year;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Set;
 
 @RestController
 @RequestMapping(value = "/veiculos")
@@ -106,16 +109,18 @@ public class VeiculoResource implements ResourceDTO<Veiculo, VeiculoRequest, Vei
     }
 
     @Transactional
-    @PostMapping
-    @GetMapping(value="/{id}/acessorios")
-    public ResponseEntity<AcessorioResponse> saveAcessorio(@RequestBody @Valid AcessorioRequest r, Long id){
+    @PostMapping(value="/{id}/acessorios")
+    public ResponseEntity<VeiculoResponse> saveAcessorio(Long id, @RequestBody @Valid AcessorioRequest r){
         var veiculo = service.findById( id );
         if (veiculo == null) return ResponseEntity.badRequest().build();
 
-        var entity = acessorioService.toEntity( r );
-        var saved = acessorioService.save( entity );
+        var acessorio = acessorioService.toEntity( r );
+        var acessorios = veiculo.getAcessorios();
+        acessorios.add( acessorio );
+        veiculo.setAcessorios(acessorios);
 
-        var resposta = acessorioService.toResponse( saved );
+        var saved = service.save( veiculo );
+        var resposta = service.toResponse( saved );
 
 
         var uri = ServletUriComponentsBuilder
@@ -125,6 +130,22 @@ public class VeiculoResource implements ResourceDTO<Veiculo, VeiculoRequest, Vei
                 .toUri();
 
         return ResponseEntity.created( uri ).body( resposta );
+    }
+
+    @Transactional
+    @GetMapping(value="/{id}/acessorios")
+    public ResponseEntity<Collection<AcessorioResponse>> findAcessorios(Long id){
+        var veiculo = service.findById( id );
+        if (veiculo == null) return ResponseEntity.notFound().build();
+
+        var acessorios = veiculo.getAcessorios();
+        if(acessorios.isEmpty()) return ResponseEntity.noContent().build();
+
+        var resposta = acessorios.stream()
+                .map( acessorioService::toResponse )
+                .toList();
+
+        return ResponseEntity.ok( resposta );
     }
 
 }
