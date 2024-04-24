@@ -4,7 +4,7 @@ spring:
   thymeleaf:
     check-template-location: false
   profiles:
-    active: mariadb
+    active: analise
   servlet:
     multipart:
       max-file-size: 1GB

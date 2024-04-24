@@ -28,7 +28,7 @@ public class Loja {
     @Column(name = "NM_LOJA")
     private String nome;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "TB_CP2_LOJA_VEICULO",
             joinColumns = @JoinColumn(name = "ID_LOJA",
